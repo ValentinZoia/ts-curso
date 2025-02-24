@@ -51,7 +51,7 @@ console.log(personaPosible.getName()); //✅ "Sergio"
 /*
 Explicación:
 Aquí, persona es una instancia de la clase Persona,
-pero como tiene la misma forma que PersonaInterface, 
+pero como tiene la misma forma("shape") que PersonaInterface, 
 TypeScript permite asignarla a una variable de tipo PersonaInterface.
 */
 
