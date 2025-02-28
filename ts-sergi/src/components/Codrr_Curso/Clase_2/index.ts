@@ -1,34 +1,63 @@
-//Object o Records
-const myObject: Object ={
-    name:"Valen"
+//----tipos e interfaces----
+
+type PaymentMethodType = "debito" | "credito" | "efectivo";
+
+//declarar interfaz, es buena practica ponerle I al inicio
+interface IPeoductoBase{
+    price:number;
+    paymentMethod:PaymentMethodType;//usamos el tipo que declaramos arriba
+    nameClient:string;
 }
 
-const myObjectV2 :Record<string, string> = {};//Record<key, value>
-myObjectV2.name = "Valen";
-myObjectV2.numero = 24; //Error el tipo number no se puede asignar a string. el value debe ser string
 
-//tuplas
-const myObjectV3 : Record<string, string | number> = {}
-myObjectV3.name = "Valen";
-myObjectV3.age = 19;
-
-//Promesas
-
-const myPromise = async():Promise<string> =>{
-    return await new Promise((res, _rej)=>{
-        setTimeout(()=>{
-            res("hola");
-        }, 2000)
-    })
+//declarar tipo, es buena practica ponerle Type al final
+type ProductoBaseType = { 
+    price:number;
+    paymentMethod:PaymentMethodType;//usamos el tipo que declaramos arriba
+    nameClient:string;
 }
 
-myPromise().then((res)=>console.log(res));
+//Herencia
+/*
+Podemos heredar atributos entre interfaces y tipos.
+Es diferente si queremos que sea de un tipo a de una interfaz-
 
-//Compuestos
-const myNewObject:{
-    name:string,
-    age:number
-} ={
-name:"Valen",
-age:19
+En interfaz se usa extends, para heredar atributos de otra interfaz.
+
+En types se usa & para heredar/combinar atributos de otro tipo.
+*/
+
+interface IFisica extends IPeoductoBase {
+    //heredamos los atributos de la interfaz IPeoductoBase, los comento para ver como seria completo
+    //price:number;
+    //paymentMethod:PaymentMethodType;
+    //nameClient:string;
+    productName: string;
+    clientAdress:string;
+    quantity:number;
+}
+
+type VirtualType = ProductoBaseType & {
+    templateName: string;
+    format: 'jpg' | 'png' | 'pdf';
+}
+
+//implementarlos
+class ProductoFisico implements IFisica {
+    price:number = 500;
+    paymentMethod: PaymentMethodType = "efectivo";
+    nameClient: string = "Juan";
+    productName: string = "Bicicleta";
+    clientAdress: string = "Calle falsa 123";
+    quantity: number = 1;
+    
+}
+ 
+
+class ProductoVirtual implements VirtualType {
+    price:number = 100;
+    paymentMethod: PaymentMethodType = "credito";
+    nameClient: string = "Valen";
+    templateName: string = "Template 1";
+    format: 'jpg' | 'png' | 'pdf' = "jpg";
 }
