@@ -68,11 +68,11 @@ const personA = {
 }
 
 //Función que espera un objeto de tipo PersonaInterface
-const senData = (persona: PersonaInterface): void => {
+const sendData = (persona: PersonaInterface): void => {
     console.log(persona.getName());
 }
 
-senData(personA); //⛔ ERROR: Property 'getName' is missing in type '{ name: string; setName(name: string): void; }' but required in type 'PersonaInterface'.ts(2345)
+sendData(personA); //⛔ ERROR: Property 'getName' is missing in type '{ name: string; setName(name: string): void; }' but required in type 'PersonaInterface'.ts(2345)
 
 //lo correcto seria tener un objeto que cumpla con la interface
 const personaB = {
@@ -85,5 +85,5 @@ const personaB = {
     }
 }
 
-senData(personaB); //✅ "alan"
+sendData(personaB); //✅ "alan"
 
