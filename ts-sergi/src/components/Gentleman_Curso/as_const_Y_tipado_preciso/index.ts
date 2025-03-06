@@ -32,3 +32,5 @@ type Enums ={
 
 console.log(myNumbers, "myNumbers");//{ NUMBER1: 'number1', NUMBER2: 'number2', NUMBER3: 'number3' }
 console.log("mixValeus", mixValues);//[ 'number1', 'number2', 'number3' ]
+
+ 
