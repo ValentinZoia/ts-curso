@@ -65,8 +65,8 @@ const Mascota1:Perro = {
 }
 
 
-console.log(metodoStringONumber(Empleado1) )
-console.log(metodoStringONumber(Mascota1) ); 
+console.log(metodoStringONumber(Empleado1) )//Hola Sergi como va
+console.log(metodoStringONumber(Mascota1) ); //34
 
 
 enum Claves {
