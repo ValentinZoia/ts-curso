@@ -22,7 +22,7 @@ class Teacher extends User{
         //con el super ya estoy llamando al constructor de la clase padre
         super();
         this.name = name
-        this.role = "teacher"
+        this.role = "teacher" 
         this.course = course
     }
     
