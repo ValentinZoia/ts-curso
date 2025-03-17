@@ -16,6 +16,6 @@ const gameBoard: Board = [
 
 //otro ejemplo de tuplas
 
-type RGB = [number, number, number];
+type RGB = readonly [number, number, number];
 
 const color: RGB = [255, 0, 0];
